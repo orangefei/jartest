@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jar
+  namespace: default
+spec:
+  selector:
+    app: jar
+    release: canary
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: jar-deploy
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: jar
+      release: canary
+  template:
+    metadata:
+      labels:
+        app: jar
+        release: canary
+    spec:
+      containers:
+      - name: jar
+        image: 10.193.1.33/java/jartest:k8s_jar_ci6
+        ports:
+        - name: httpd
+          containerPort: 8080
