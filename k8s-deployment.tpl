@@ -52,4 +52,4 @@ spec:
       - path: 
         backend:
           serviceName: {APP_NAME}-deployment
-          servicePort: 8080
+          servicePort: 80
