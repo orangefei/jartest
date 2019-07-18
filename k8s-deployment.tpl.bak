@@ -44,7 +44,6 @@ metadata:
   namespace: uat
   annotations: 
     kubernetes.io/ingress.class: traefik
-
 spec:
   rules:
   - host: pipelinetest.k8s.local
