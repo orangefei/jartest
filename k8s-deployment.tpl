@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {APP_NAME}-deployment
+  namespace: uat
+spec:
+  selector:
+    app: {APP_NAME}
+    release: canary
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -32,7 +46,7 @@ metadata:
     kubernets.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: pipelinejar.k8s.local
+  - host: pipelinedev.k8s.local
     http:
       paths:
       - path: 
