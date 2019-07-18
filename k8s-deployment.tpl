@@ -43,13 +43,13 @@ metadata:
   name: {APP_NAME}
   namespace: uat
   annotations: 
-    kubernets.io/ingress.class: "nginx"
+    kubernets.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: pipelinetest.k8s.local
+  - host: pipeline.k8s.local
     http:
       paths:
       - path: 
         backend:
           serviceName: {APP_NAME}-deployment
-          servicePort: 80
+          servicePort: 8080
