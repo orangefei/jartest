@@ -43,7 +43,7 @@ metadata:
   name: {APP_NAME}
   namespace: uat
   annotations: 
-    kubernets.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
   - host: pipelinetest.k8s.local
