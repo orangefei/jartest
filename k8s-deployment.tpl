@@ -51,5 +51,5 @@ spec:
       paths:
       - path: 
         backend:
-          serviceName: jar
+          serviceName: {APP_NAME}-deployment
           servicePort: 8080
