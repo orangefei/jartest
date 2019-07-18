@@ -35,19 +35,15 @@ spec:
         ports:
         - containerPort: 8080
 ---
-apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {APP_NAME}
-  namespace: uat
-  annotations: 
-    kubernets.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: main.k8s.local
+  - host: hellouat.test.com
     http:
       paths:
-      - path: 
+      - path: /
         backend:
           serviceName: {APP_NAME}-svc
           servicePort: 8080

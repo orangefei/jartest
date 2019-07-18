@@ -35,6 +35,7 @@ spec:
         ports:
         - containerPort: 8080
 ---
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {APP_NAME}
