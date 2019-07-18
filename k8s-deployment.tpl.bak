@@ -46,7 +46,7 @@ metadata:
     kubernets.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: pipelinejar.k8s.local
+  - host: pipelinedev.k8s.local
     http:
       paths:
       - path: 

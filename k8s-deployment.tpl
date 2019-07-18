@@ -40,13 +40,13 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-jar
+  name: {APP_NAME}
   namespace: uat
   annotations: 
     kubernets.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: pipelinedev.k8s.local
+  - host: pipelinetest.k8s.local
     http:
       paths:
       - path: 
