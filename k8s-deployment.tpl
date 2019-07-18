@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {APP_NAME}-deployment
+  name: {APP_NAME}-svc
   namespace: uat
 spec:
   selector:
@@ -16,7 +16,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {APP_NAME}-deployment
+  name: {APP_NAME}-deploy
   labels:
     app: {APP_NAME}
 spec:
@@ -49,6 +49,6 @@ spec:
       paths:
       - path: 
         backend:
-          serviceName: {APP_NAME}-deployment
+          serviceName: {APP_NAME}-svc
           servicePort: 8080
 
