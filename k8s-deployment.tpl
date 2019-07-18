@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {APP_NAME}-deployment
-  namespace: uat
+  namespace: default
 spec:
   selector:
     app: {APP_NAME}
@@ -11,6 +11,7 @@ spec:
   - name: http
     port: 8080
     targetPort: 8080
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -33,9 +34,6 @@ spec:
         image: {IMAGE_URL}:{IMAGE_TAG}
         ports:
         - containerPort: 8080
-        env:
-          - name: SPRING_PROFILES_ACTIVE
-            value: {SPRING_PROFILE}
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -43,13 +41,14 @@ metadata:
   name: {APP_NAME}
   namespace: uat
   annotations: 
-    kubernets.io/ingress.class: "traefik"
+    kubernets.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: pipeline.k8s.local
+  - host: crcs-core.k8s.local
     http:
       paths:
       - path: 
         backend:
           serviceName: {APP_NAME}-deployment
           servicePort: 8080
+
