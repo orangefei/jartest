@@ -41,10 +41,10 @@ metadata:
   name: {APP_NAME}
   namespace: uat
   annotations: 
-    kubernets.io/ingress.class: "nginx"
+    kubernets.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: crcs-core.k8s.local
+  - host: main.k8s.local
     http:
       paths:
       - path: 
