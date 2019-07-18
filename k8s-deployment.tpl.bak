@@ -49,6 +49,6 @@ spec:
       paths:
       - path: 
         backend:
-          serviceName: {APP_NAME}-deployment
+          serviceName: {APP_NAME}-svc
           servicePort: 8080
 
