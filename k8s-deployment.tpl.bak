@@ -15,28 +15,26 @@ spec:
 ---
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: 
   name: {APP_NAME}-deploy
-  labels:
-    app: {APP_NAME}
 spec:
   replicas: 1
-  selector:
+  selector: 
     matchLabels:
       app: {APP_NAME}
+      release: canary
   template:
     metadata:
       labels:
         app: {APP_NAME}
+        release: canary
     spec:
       containers:
       - name: {APP_NAME}
-        image: {IMAGE_URL}:{IMAGE_TAG}
+        image: image: {IMAGE_URL}:{IMAGE_TAG}
         ports:
-        - containerPort: 8080
-        env:
-          - name: SPRING_PROFILES_ACTIVE
-            value: {SPRING_PROFILE}
+        - name: httpd
+          containerPort: 8080
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
