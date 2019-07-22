@@ -15,37 +15,40 @@ spec:
 ---
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: 
   name: {APP_NAME}-deploy
-  labels:
-    app: {APP_NAME}
 spec:
   replicas: 1
-  selector:
+  selector: 
     matchLabels:
       app: {APP_NAME}
+      release: canary
   template:
     metadata:
       labels:
         app: {APP_NAME}
+        release: canary
     spec:
       containers:
       - name: {APP_NAME}
-        image: {IMAGE_URL}:{IMAGE_TAG}
+        image: image: {IMAGE_URL}:{IMAGE_TAG}
         ports:
-        - containerPort: 8080
+        - name: httpd
+          containerPort: 8080
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {APP_NAME}
+  name: ingress-jar
+  namespace: uat
+  annotations: 
+    kubernets.io/ingress.class: "traefix"
 spec:
   rules:
-  - host: hellouat.test.com
+  - host: fuck.k8s.local
     http:
       paths:
-      - path: /
+      - path: 
         backend:
           serviceName: {APP_NAME}-svc
           servicePort: 8080
-
