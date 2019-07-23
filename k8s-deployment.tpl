@@ -1,22 +1,7 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: {APP_NAME}-svc
-  namespace: uat
-spec:
-  selector:
-    app: {APP_NAME}
-    release: canary
-  ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {APP_NAME}-deploy
+  name: {APP_NAME}-deployment
   labels:
     app: {APP_NAME}
 spec:
@@ -37,20 +22,3 @@ spec:
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: {SPRING_PROFILE}
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: ingress-jar
-  namespace: uat
-  annotations: 
-    kubernets.io/ingress.class: "traefix"
-spec:
-  rules:
-  - host: fuck.k8s.local
-    http:
-      paths:
-      - path: 
-        backend:
-          serviceName: {APP_NAME}-svc
-          servicePort: 8080
