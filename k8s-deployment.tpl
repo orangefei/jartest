@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {APP_NAME}-Service
+  namespace: uat
+spec:
+  selector:
+    app: {APP_NAME}
+    release: canary
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -29,7 +43,7 @@ metadata:
   name: {APP_NAME}
   namespace: uat
   annotations: 
-    kubernets.io/ingress.class: "nginx"
+    kubernets.io/ingress.class: "traefik"
 spec:
   rules:
   - host: crcstest-core.k8s.local
@@ -37,5 +51,5 @@ spec:
       paths:
       - path: 
         backend:
-          serviceName: {APP_NAME}-svc
+          serviceName: {APP_NAME}-Service
           servicePort: 8080
