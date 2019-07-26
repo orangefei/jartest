@@ -8,8 +8,8 @@ pipeline {
     }
     parameters {
         string(name: 'HARBOR_HOST', defaultValue: '10.193.1.33', description: 'harbor仓库地址')
-        string(name: 'DOCKER_IMAGE', defaultValue: 'jaruat/maintest', description: 'docker镜像名')
-        string(name: 'APP_NAME', defaultValue: 'maintest', description: 'k8s中标签名')
+        string(name: 'DOCKER_IMAGE', defaultValue: 'jaruat/main', description: 'docker镜像名')
+        string(name: 'APP_NAME', defaultValue: 'main', description: 'k8s中标签名')
         string(name: 'K8S_NAMESPACE', defaultValue: 'uat', description: 'k8s的namespace名称')
     }
     stages {
