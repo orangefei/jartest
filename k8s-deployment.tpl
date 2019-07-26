@@ -22,3 +22,20 @@ spec:
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: {SPRING_PROFILE}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {APP_NAME}
+  namespace: uat
+  annotations: 
+    kubernets.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: crcstest-core.k8s.local
+    http:
+      paths:
+      - path: 
+        backend:
+          serviceName: {APP_NAME}-svc
+          servicePort: 8080
