@@ -6,8 +6,7 @@ metadata:
 spec:
   selector:
     app: {APP_NAME}
-    release: canary
-  ports:
+ports:
   - name: http
     port: 8080
     targetPort: 8080

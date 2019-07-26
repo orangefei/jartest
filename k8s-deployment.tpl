@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: {APP_NAME}
-ports:
+  ports:
   - name: http
     port: 8080
     targetPort: 8080
