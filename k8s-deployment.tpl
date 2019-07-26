@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {APP_NAME}-Service
+  name: {APP_NAME}-service
   namespace: uat
 spec:
   selector:
