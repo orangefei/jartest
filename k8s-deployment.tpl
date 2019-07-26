@@ -46,7 +46,7 @@ metadata:
     kubernets.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: crcstest-core.k8s.local
+  - host: main.k8s.local
     http:
       paths:
       - path: 
