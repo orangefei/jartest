@@ -51,5 +51,5 @@ spec:
       paths:
       - path: 
         backend:
-          serviceName: {APP_NAME}-Service
+          serviceName: {APP_NAME}-service
           servicePort: 8080
